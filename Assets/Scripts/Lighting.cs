@@ -51,7 +51,7 @@ public class Lighting : MonoBehaviour
                 Debug.Log("ERROR: no SanityManager script attached to the player.");
                 Destroy(this.gameObject);
             }
-            playerSanity.AddSanity(previousIntesity - light.intensity);
+            playerSanity.IncreaseSanity(previousIntesity - light.intensity);
         }
     }
     private float DistanceFromPlayer()

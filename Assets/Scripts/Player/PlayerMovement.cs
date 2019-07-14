@@ -126,7 +126,7 @@ public class PlayerMovement : PhysicsObject {
     {
         Vector2 move = Vector2.zero;
 
-        move.x = Input.GetAxis("Horizontal");
+        move.x = Input.GetAxisRaw("Horizontal");
 
         // The (numberOfJumps > 0 || grounded) check if to disallow jumping after falling
         if (Input.GetButtonDown("Jump") && (numberOfJumps > 0 || grounded))

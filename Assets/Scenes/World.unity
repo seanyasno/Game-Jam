@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd7480e97143984ca76b5dec30d3814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ppb: {fileID: 1768551211}
+  sanity: 5.23
   playerLight: {fileID: 314047638}
   minLightRange: 3
   normalLightRange: 4
@@ -485,6 +485,7 @@ MonoBehaviour:
   lowSanityColor: {r: 0.70980394, g: 0.3372549, b: 0.3372549, a: 0}
   normalSanityColor: {r: 0.23921569, g: 0.5647059, b: 0.34901962, a: 0}
   highSanityColor: {r: 0.31763974, g: 0.4815702, b: 0.8113208, a: 0}
+  ppb: {fileID: 1768551211}
 --- !u!1 &977569731
 GameObject:
   m_ObjectHideFlags: 0

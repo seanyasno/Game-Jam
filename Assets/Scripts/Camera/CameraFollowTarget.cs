@@ -7,6 +7,8 @@ public class CameraFollowTarget : MonoBehaviour
 
     [SerializeField]
     private Transform followedTarget = null;
+    [SerializeField]
+    private float addToPositionZ = 0;
    
     void Start() {
 
@@ -18,7 +20,7 @@ public class CameraFollowTarget : MonoBehaviour
    
     void LateUpdate() {
 
-        transform.position = new Vector3(followedTarget.position.x, followedTarget.position.y, followedTarget.position.z - 10);
+        transform.position = new Vector3(followedTarget.position.x, followedTarget.position.y, followedTarget.position.z + addToPositionZ);
         
     }
 }

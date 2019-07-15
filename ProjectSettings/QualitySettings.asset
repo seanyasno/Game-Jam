@@ -43,7 +43,7 @@ QualitySettings:
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Low
-    pixelLightCount: 0
+    pixelLightCount: 4
     shadows: 0
     shadowResolution: 0
     shadowProjection: 1

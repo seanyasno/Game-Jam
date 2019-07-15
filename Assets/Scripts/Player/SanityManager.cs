@@ -59,6 +59,7 @@ public class SanityManager : MonoBehaviour
     private void UpdateLight() {
         //playerLight.range = sanity;
         playerLight.color = new Color(0.2376291f, (sanity+25f)/144f, 0.3483699f, 1f);
+
         if (sanity < 3.8) { // low
             LowPPPUpdate();
             sanityLevel = SanityLevel.LOW;

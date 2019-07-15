@@ -28,11 +28,13 @@ public class AI_Movement : MonoBehaviour
     [SerializeField] private bool wasTargetCaught = false;
 
     [Header("Run Away")]
-    [SerializeField] private float runningSpeed = 0f;
+    [SerializeField] private float runningSpeed = 15f;
+    [SerializeField] private float enemyDetectingRadius = 7f;
 
 
     void Start() {
 
+        followedTarget = GameObject.FindWithTag("Player").transform;
         initPathFollowing();
         initTargetChase();
 
@@ -110,9 +112,9 @@ public class AI_Movement : MonoBehaviour
 
     private void RunAway(){
         ChangeForm changeForm = followedTarget.GetComponent<ChangeForm>();
-        if (changeForm != null && changeForm.hasTransformed && Vector3.Distance(transform.position, followedTarget.position) <= 10f){
-            Vector3 moveDir = transform.position - followedTarget.position;
-            move(moveDir, runningSpeed);
+        if (changeForm != null && changeForm.hasTransformed && Vector3.Distance(body.position, followedTarget.position) <= enemyDetectingRadius){
+            move(body.position - followedTarget.position, runningSpeed);
+            //flipX(moveDir);
         }
     }
 

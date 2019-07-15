@@ -91,7 +91,8 @@ MonoBehaviour:
   caughtRadius: 4
   escapeRadius: 10
   wasTargetCaught: 0
-  runningSpeed: 25
+  runningSpeed: 15
+  enemyDetectingRadius: 7
 --- !u!1 &8164617680287541213
 GameObject:
   m_ObjectHideFlags: 0

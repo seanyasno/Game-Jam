@@ -23,9 +23,6 @@ public class MobManager : MonoBehaviour
 
             float normalizedDistance = distanceFromPlayer / range;
             float reductionFactor = damangeReductionFactor * (1 - normalizedDistance) + normalizedDistance;
-
-            print(reductionFactor);
-
             sanityManager.DecreaseSanity(reductionFactor * 0.1f);
         }
     }

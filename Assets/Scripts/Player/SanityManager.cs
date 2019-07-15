@@ -55,7 +55,12 @@ public class SanityManager : MonoBehaviour
     public void DecreaseSanity(float toSub) {
         sanity -= toSub/4;
 
-        if (sanity <= 0) sanity = 0;
+        if (sanity <= 0) death();
+    }
+
+    private void death(){
+        sanity = 0;
+        
     }
 
     // Updates player light's settings
@@ -68,7 +73,7 @@ public class SanityManager : MonoBehaviour
             sanityLevel = SanityLevel.LOW;
 
             //StartCoroutine(cameraShake.Shake(0.1f, 4f));
-            CameraShaker.Instance.ShakeOnce(5f, 10f, 0.1f, 1f);
+            CameraShaker.Instance.ShakeOnce(2.5f, 3f, 0.1f, 1f);
         } else if (sanity > maxLightRange) { // high
             HighPPPUpdate();
             sanityLevel = SanityLevel.HIGH;

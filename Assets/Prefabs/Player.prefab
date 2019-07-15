@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1027083678069263220}
   - component: {fileID: 1027083678069263223}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 1027083678642307139}
   - component: {fileID: 1027083678642307145}
   - component: {fileID: 364458303544639167}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}

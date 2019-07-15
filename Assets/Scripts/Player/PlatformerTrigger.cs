@@ -12,12 +12,12 @@ public class PlatformerTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.transform.name == "Tilemap")
+        if (collision.transform.name == "Platforms")
             tmCollider.isTrigger = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.transform.name == "Tilemap")
+        if (collision.transform.name == "Platforms")
             tmCollider.isTrigger = false;
     }
 

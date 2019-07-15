@@ -1170,9 +1170,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1768551206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a23334876f3bb84a9b711387122e260, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a94a58ad11e59e43ad3d6d73bfef0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 0, y: 0, z: 1}
+  RestPositionOffset: {x: 0, y: 0, z: 0}
+  RestRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &2059772183
 GameObject:
   m_ObjectHideFlags: 0

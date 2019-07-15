@@ -110,8 +110,8 @@ public class AI_Movement : MonoBehaviour
 
     private void RunAway(){
         ChangeForm changeForm = followedTarget.GetComponent<ChangeForm>();
-        if (changeForm != null && changeForm.hasTransformed){
-            Vector3 moveDir = transform.position - followedTarget.transform.position;
+        if (changeForm != null && changeForm.hasTransformed && Vector3.Distance(transform.position, followedTarget.position) <= 10f){
+            Vector3 moveDir = transform.position - followedTarget.position;
             move(moveDir, runningSpeed);
         }
     }

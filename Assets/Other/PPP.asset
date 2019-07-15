@@ -78,10 +78,10 @@ MonoBehaviour:
       useCameraFov: 1
       kernelSize: 1
   motionBlur:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       shutterAngle: 360
-      sampleCount: 10
+      sampleCount: 16
       frameBlending: 0
   eyeAdaptation:
     m_Enabled: 0
@@ -306,16 +306,16 @@ MonoBehaviour:
       lut: {fileID: 0}
       contribution: 1
   chromaticAberration:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
       intensity: 1
   grain:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       colored: 1
-      intensity: 0.216
-      size: 0.79
+      intensity: 0.54
+      size: 1.87
       luminanceContribution: 0.826
   vignette:
     m_Enabled: 1

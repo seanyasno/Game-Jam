@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 8164617680287541202}
-  animator: {fileID: 0}
+  animator: {fileID: 8164617680287541200}
   pathMarkers:
   - {fileID: 8164617679878584320}
   - {fileID: 8164617681152967290}

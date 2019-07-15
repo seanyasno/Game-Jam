@@ -7,21 +7,20 @@ public class SanityManager : MonoBehaviour
 {
 
     // The current amount of sanity the player's has
-    [SerializeField, Range(0f, 6f)] private float sanity = 5.2f;
+    [SerializeField, Range(0f, 75f)] private float sanity;
     public float Sanity { get; }
+
+    [SerializeField] private SanityLevel sanityLevel;
+    public SanityLevel SanityLevel { get; }
 
     //------------------- Lighting Settings Section ----------------------
 
     public Light playerLight;
 
     // settings for player light's spread range
-    [SerializeField] private float minLightRange = 3f;
-    [SerializeField] private float normalLightRange = 4f;
-    [SerializeField] private float maxLightRange = 6f;
-
-    [SerializeField] private Color lowSanityColor = Color.red;
-    [SerializeField] private Color normalSanityColor = Color.green;
-    [SerializeField] private Color highSanityColor = Color.blue;
+    [SerializeField] private float minLightRange = 30f;
+    [SerializeField] private float normalLightRange = 45f;
+    [SerializeField] private float maxLightRange = 60f;
 
     //---------------- Post Processing Settings Section -------------------
 
@@ -58,16 +57,17 @@ public class SanityManager : MonoBehaviour
 
     // Updates player light's settings
     private void UpdateLight() {
-        playerLight.range = sanity;
+        //playerLight.range = sanity;
+        playerLight.color = new Color(0.2376291f, (sanity+25f)/144f, 0.3483699f, 1f);
         if (sanity < 3.8) { // low
-            playerLight.color = lowSanityColor;
             LowPPPUpdate();
+            sanityLevel = SanityLevel.LOW;
         } else if (sanity > 4.8) { // high
-            playerLight.color = highSanityColor;
             HighPPPUpdate();
+            sanityLevel = SanityLevel.HIGH;
         } else { // normal
-            playerLight.color = normalSanityColor;
             NormalPPPUpdate();
+            sanityLevel = SanityLevel.NORMAL;
         }
     }
 
@@ -100,4 +100,10 @@ public class SanityManager : MonoBehaviour
         grainSettings.size = normalGrainSize;
         ppb.profile.grain.settings = grainSettings;
     }
+}
+
+public enum SanityLevel {
+    LOW,
+    NORMAL,
+    HIGH
 }

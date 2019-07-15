@@ -13,7 +13,7 @@ public class MobSpawnManager : MonoBehaviour
     private int amount = 0;
     private List<GameObject> spawnedMobs;
 
-    private float timeToSpawn = 3f;
+    private float timeToSpawn = 0f;
     private bool canSpawn = true;
 
     private void Awake() {
@@ -24,10 +24,6 @@ public class MobSpawnManager : MonoBehaviour
     }
 
     private void Update() {
-        if (!canSpawn) {
-            timeToSpawn -= Time.deltaTime;
-        }
-
         switch (sanityManager.SanityLevel) {
             case SanityLevel.LOW:
                 if (amount < minSpawnAmount && canSpawn && timeToSpawn <= 0f) {
@@ -41,6 +37,13 @@ public class MobSpawnManager : MonoBehaviour
                 break;
             case SanityLevel.HIGH:
                 break;
+        }
+
+        if (!canSpawn) {
+            if (timeToSpawn < 0f) {
+                return;
+            }
+            timeToSpawn -= Time.deltaTime;
         }
     }
 

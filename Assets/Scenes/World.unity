@@ -160,6 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 15066962}
+  - component: {fileID: 15066963}
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
@@ -181,6 +182,22 @@ Transform:
   m_Father: {fileID: 806500402}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &15066963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15066961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103e91e49c2568e4b98d9062b2835686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mobsToSpawn:
+  - {fileID: 11400000, guid: 54b8a41519136554e848c6e042e5fec0, type: 2}
+  minSpawnAmount: 3
+  maxSpawnAmount: 8
 --- !u!1 &240445779
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +760,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1605239675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1027083678642307136, guid: dd0085b7bf6c4964a810e0ddd689f79a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1027083677825005537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1605239676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605239675}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3990b31d61c66054f9a5f8b8db74d691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstForm: {fileID: 21300000, guid: fa98803f35ec14541b02fb616064c85d, type: 3}
+  secondForm: {fileID: 21300000, guid: abf4e9dab9c61cf4aa3c079dbe106e4e, type: 3}
+  hasTransformed: 0
 --- !u!1 &1768551206
 GameObject:
   m_ObjectHideFlags: 0

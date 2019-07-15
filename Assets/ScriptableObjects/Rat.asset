@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Rat
   m_EditorClassIdentifier: Assembly-CSharp::Mob
-  mobPrefab: {fileID: 7208484331790391920, guid: 7b7644b6c8efa0f4da171088dfaa5220,
+  mobPrefab: {fileID: 8164617680018999601, guid: 7e411ab6886959247ae0cf345c90a651,
     type: 3}

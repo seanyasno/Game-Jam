@@ -10,7 +10,6 @@ public class MobSpawnManager : MonoBehaviour
     [SerializeField] private int minSpawnAmount = 3;
     [SerializeField] private int maxSpawnAmount = 8;
 
-    private int amount = 0;
     private List<GameObject> spawnedMobs;
 
     private float timeToSpawn = 0f;
@@ -26,24 +25,30 @@ public class MobSpawnManager : MonoBehaviour
     private void Update() {
         switch (sanityManager.SanityLevel) {
             case SanityLevel.LOW:
-                if (amount < minSpawnAmount && canSpawn && timeToSpawn <= 0f) {
-                    GameObject go = Instantiate(mobsToSpawn[0].mobPrefab, transform.position, Quaternion.identity, transform);
-                    spawnedMobs.Add(go);
-                    canSpawn = false;
-                    timeToSpawn = 3f;
-                }
+                SpawnMobsManager(minSpawnAmount);
                 break;
             case SanityLevel.NORMAL:
                 break;
             case SanityLevel.HIGH:
+                SpawnMobsManager(maxSpawnAmount);
                 break;
         }
 
         if (!canSpawn) {
             if (timeToSpawn < 0f) {
+                canSpawn = true;
                 return;
             }
             timeToSpawn -= Time.deltaTime;
+        }
+    }
+
+    private void SpawnMobsManager(int amount) {
+        if (spawnedMobs.Count < amount && canSpawn && timeToSpawn <= 0f) {
+            GameObject go = Instantiate(mobsToSpawn[0].mobPrefab, transform.position, Quaternion.identity, transform);
+            spawnedMobs.Add(go);
+            canSpawn = false;
+            timeToSpawn = 3f;
         }
     }
 

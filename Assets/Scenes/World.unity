@@ -1061,6 +1061,7 @@ GameObject:
   - component: {fileID: 1768551207}
   - component: {fileID: 1768551211}
   - component: {fileID: 1768551210}
+  - component: {fileID: 1768551212}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1160,6 +1161,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 2de5ade8851df804185ea4c5f74debe8, type: 2}
+--- !u!114 &1768551212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768551206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a23334876f3bb84a9b711387122e260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2059772183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,6 +1419,21 @@ PrefabInstance:
         type: 3}
       propertyPath: sanity
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027083678642307145, guid: dd0085b7bf6c4964a810e0ddd689f79a,
+        type: 3}
+      propertyPath: minLightRange
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027083678642307145, guid: dd0085b7bf6c4964a810e0ddd689f79a,
+        type: 3}
+      propertyPath: normalLightRange
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027083678642307145, guid: dd0085b7bf6c4964a810e0ddd689f79a,
+        type: 3}
+      propertyPath: maxLightRange
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1027083678069263223, guid: dd0085b7bf6c4964a810e0ddd689f79a,
         type: 3}

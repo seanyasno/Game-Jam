@@ -7,6 +7,10 @@ public class PlatformerTrigger : MonoBehaviour
 {
     public TilemapCollider2D tmCollider;
 
+    bool pressedDown() {
+        return Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.transform.name == "Tilemap")
             tmCollider.isTrigger = true;
@@ -18,17 +22,9 @@ public class PlatformerTrigger : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.S)) {
+        if (pressedDown()) {
             tmCollider.isTrigger = true;
         }
     }
 
-
-    //private void OnTriggerEnter(Collider other) {
-    //    print(other.transform.name);
-    //}
-
-    //private void OnCollisionEnter(Collision collision) {
-    //    print(collision.transform.name);
-    //}
 }

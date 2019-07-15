@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
 
@@ -12,6 +11,8 @@ public class SanityManager : MonoBehaviour
 
     [SerializeField] private SanityLevel sanityLevel;
     public SanityLevel SanityLevel { get; }
+
+    private CameraShake cameraShake;
 
     //------------------- Lighting Settings Section ----------------------
 
@@ -36,6 +37,8 @@ public class SanityManager : MonoBehaviour
         if (ppb == null) {
             Debug.LogError("PPB IS MISSING");
         }
+
+        cameraShake = Camera.main.GetComponent<CameraShake>();
     }
 
     private void Update() {
@@ -44,15 +47,15 @@ public class SanityManager : MonoBehaviour
     }
    
     public void IncreaseSanity(float toAdd) {
-        sanity += toAdd;
+        sanity += toAdd*10;
 
-        if (sanity >= maxLightRange) sanity = maxLightRange;
+        if (sanity >= maxLightRange) sanity = 75f;
     }
 
     public void DecreaseSanity(float toSub) {
-        sanity -= toSub/8;
+        sanity -= toSub/4;
 
-        if (sanity <= minLightRange) sanity = minLightRange;
+        if (sanity <= 0) sanity = 0;
     }
 
     // Updates player light's settings
@@ -60,10 +63,13 @@ public class SanityManager : MonoBehaviour
         //playerLight.range = sanity;
         playerLight.color = new Color(0.2376291f, (sanity+25f)/144f, 0.3483699f, 1f);
 
-        if (sanity < 3.8) { // low
+        if (sanity < minLightRange) { // low
             LowPPPUpdate();
             sanityLevel = SanityLevel.LOW;
-        } else if (sanity > 4.8) { // high
+
+            //StartCoroutine(cameraShake.Shake(0.1f, 4f));
+            CameraShaker.Instance.ShakeOnce(5f, 10f, 0.1f, 1f);
+        } else if (sanity > maxLightRange) { // high
             HighPPPUpdate();
             sanityLevel = SanityLevel.HIGH;
         } else { // normal

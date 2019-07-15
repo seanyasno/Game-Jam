@@ -45,7 +45,10 @@ public class MobSpawnManager : MonoBehaviour
 
     private void SpawnMobsManager(int amount) {
         if (spawnedMobs.Count < amount && canSpawn && timeToSpawn <= 0f) {
-            GameObject go = Instantiate(mobsToSpawn[0].mobPrefab, transform.position, Quaternion.identity, transform);
+
+            int rndMob = Random.Range(0, mobsToSpawn.Length);
+
+            GameObject go = Instantiate(mobsToSpawn[rndMob].mobPrefab, transform.position, Quaternion.identity, transform);
             spawnedMobs.Add(go);
             canSpawn = false;
             timeToSpawn = 3f;

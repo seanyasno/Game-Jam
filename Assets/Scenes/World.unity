@@ -36828,14 +36828,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 117182662}
-  - {fileID: 1559908371}
-  - {fileID: 500366391}
-  - {fileID: 287210476}
-  - {fileID: 481920751}
-  - {fileID: 1774975697}
-  - {fileID: 1434224031}
+  m_Children: [{fileID: 117182662}, {fileID: 1559908371}, {fileID: 500366391}, {fileID: 287210476},
+    {fileID: 481920751}, {fileID: 1774975697}, {fileID: 1434224031}]
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37967,13 +37961,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1321639748}
-  - {fileID: 1900154861}
-  - {fileID: 1605502699}
-  - {fileID: 1923944821}
-  - {fileID: 1990683521}
-  - {fileID: 1039279545}
+  m_Children: [{fileID: 1321639748}, {fileID: 1900154861}, {fileID: 1605502699}, {
+      fileID: 1923944821}, {fileID: 1990683521}, {fileID: 1039279545}]
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38871,6 +38860,7 @@ GameObject:
   - component: {fileID: 1768551207}
   - component: {fileID: 1768551211}
   - component: {fileID: 1768551210}
+  - component: {fileID: 1768551212}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -38970,6 +38960,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 2de5ade8851df804185ea4c5f74debe8, type: 2}
+--- !u!114 &1768551212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768551206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a23334876f3bb84a9b711387122e260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1774975697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8164617680018999606, guid: 7e411ab6886959247ae0cf345c90a651,
@@ -85205,6 +85207,21 @@ PrefabInstance:
         type: 3}
       propertyPath: sanity
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027083678642307145, guid: dd0085b7bf6c4964a810e0ddd689f79a,
+        type: 3}
+      propertyPath: minLightRange
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027083678642307145, guid: dd0085b7bf6c4964a810e0ddd689f79a,
+        type: 3}
+      propertyPath: normalLightRange
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027083678642307145, guid: dd0085b7bf6c4964a810e0ddd689f79a,
+        type: 3}
+      propertyPath: maxLightRange
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1027083678642307145, guid: dd0085b7bf6c4964a810e0ddd689f79a,
         type: 3}

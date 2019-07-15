@@ -10,4 +10,9 @@ public class ButtonController : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
+    public void Update(){
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
+
 }

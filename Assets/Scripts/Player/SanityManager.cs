@@ -10,6 +10,9 @@ public class SanityManager : MonoBehaviour
     [SerializeField, Range(0f, 6f)] private float sanity = 5.2f;
     public float Sanity { get; }
 
+    [SerializeField] private SanityLevel sanityLevel;
+    public SanityLevel SanityLevel { get; }
+
     //------------------- Lighting Settings Section ----------------------
 
     public Light playerLight;
@@ -62,12 +65,15 @@ public class SanityManager : MonoBehaviour
         if (sanity < 3.8) { // low
             playerLight.color = lowSanityColor;
             LowPPPUpdate();
+            sanityLevel = SanityLevel.LOW;
         } else if (sanity > 4.8) { // high
             playerLight.color = highSanityColor;
             HighPPPUpdate();
+            sanityLevel = SanityLevel.HIGH;
         } else { // normal
             playerLight.color = normalSanityColor;
             NormalPPPUpdate();
+            sanityLevel = SanityLevel.NORMAL;
         }
     }
 
@@ -100,4 +106,10 @@ public class SanityManager : MonoBehaviour
         grainSettings.size = normalGrainSize;
         ppb.profile.grain.settings = grainSettings;
     }
+}
+
+public enum SanityLevel {
+    LOW,
+    NORMAL,
+    HIGH
 }

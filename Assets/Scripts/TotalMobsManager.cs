@@ -5,7 +5,11 @@ using UnityEngine;
 public class TotalMobsManager : MonoBehaviour
 {
 
+    public Mob[] mobsToSpawn;
+
     public Transform[] spawnLocations;
+
+    [SerializeField] private List<MobSpawnManager> mobSpawnManager;
 
     private SanityManager sanityManager;
 
@@ -13,10 +17,19 @@ public class TotalMobsManager : MonoBehaviour
         sanityManager = GameObject.FindGameObjectWithTag("Player").GetComponent<SanityManager>();
         if (sanityManager == null)
             Debug.LogError("PLAYER IS MISSING");
+
+        mobSpawnManager = new List<MobSpawnManager>();
     }
 
     private void Update() {
-        
+        switch (sanityManager.SanityLevel) {
+            case SanityLevel.LOW:
+                break;
+            case SanityLevel.NORMAL:
+                break;
+            case SanityLevel.HIGH:
+                break;
+        }
     }
 
 }
@@ -25,8 +38,6 @@ public class TotalMobsManager : MonoBehaviour
 public class Mob : ScriptableObject {
 
     public GameObject mobPrefab;
-    public int minSpawnAmount;
-    public int maxSpawnAmount;
 
 }
 

@@ -79,33 +79,26 @@ public class SanityManager : MonoBehaviour
     }
 
     private void LowPPPUpdate() { 
-        ppb.profile.motionBlur.enabled = false;
-        ppb.profile.chromaticAberration.enabled = false;
-
-        GrainModel.Settings grainSettings = ppb.profile.grain.settings;
-        grainSettings.intensity = lowGrainIntesity;
-        grainSettings.size = lowGrainSize;
-        ppb.profile.grain.settings = grainSettings;
+        PPPUpdateHelper(false, false, lowGrainIntesity, lowGrainSize);
     }
 
     private void NormalPPPUpdate() {
-        ppb.profile.motionBlur.enabled = false;
-        ppb.profile.chromaticAberration.enabled = false;
-
-        GrainModel.Settings grainSettings = ppb.profile.grain.settings;
-        grainSettings.intensity = normalGrainIntesity;
-        grainSettings.size = normalGrainSize;
-        ppb.profile.grain.settings = grainSettings;
+        PPPUpdateHelper(false, false, normalGrainIntesity, normalGrainSize);
     }
 
     private void HighPPPUpdate() {
-        ppb.profile.motionBlur.enabled = true;
-        ppb.profile.chromaticAberration.enabled = true;
+        PPPUpdateHelper(true, true, normalGrainIntesity, normalGrainSize);
+    }
+
+    private void PPPUpdateHelper(bool motionBlur, bool chromaticAberration, float grainIntensity, float grainSize) {
+        ppb.profile.motionBlur.enabled = motionBlur;
+        ppb.profile.chromaticAberration.enabled = chromaticAberration;
 
         GrainModel.Settings grainSettings = ppb.profile.grain.settings;
-        grainSettings.intensity = normalGrainIntesity;
-        grainSettings.size = normalGrainSize;
+        grainSettings.intensity = grainIntensity;
+        grainSettings.size = grainSize;
         ppb.profile.grain.settings = grainSettings;
+    
     }
 }
 

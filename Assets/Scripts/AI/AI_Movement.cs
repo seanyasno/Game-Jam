@@ -38,7 +38,7 @@ public class AI_Movement : MonoBehaviour
 
         animator = body.GetComponent<Animator>();
         body.GetComponent<Rigidbody2D>().gravityScale = defaultGravity;
-
+        followedTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void FixedUpdate() {
@@ -66,8 +66,8 @@ public class AI_Movement : MonoBehaviour
 
         if (canChaseTarget){
 
-            if (followedTarget == null)
-                Debug.Log("AI_Movement [87] -> Followed Target is Missing");
+            //if (followedTarget == null)
+            //    Debug.Log("AI_Movement [87] -> Followed Target is Missing");
 
             wasTargetCaught = false;
 
@@ -110,8 +110,8 @@ public class AI_Movement : MonoBehaviour
 
     private void RunAway(){
         ChangeForm changeForm = followedTarget.GetComponent<ChangeForm>();
-        if (changeForm != null && changeForm.hasTransformed){
-            Vector3 moveDir = transform.position - followedTarget.transform.position;
+        if (changeForm != null && changeForm.hasTransformed && Vector3.Distance(transform.position, followedTarget.position) <= 10f){
+            Vector3 moveDir = transform.position - followedTarget.position;
             move(moveDir, runningSpeed);
         }
     }

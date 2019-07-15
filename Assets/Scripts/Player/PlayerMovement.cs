@@ -149,5 +149,13 @@ public class PlayerMovement : PhysicsObject {
         // animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / maxSpeed);
 
         targetVelocity = move * maxSpeed;
+        GetComponent<Animator>().SetFloat("MovementSpeed", Input.GetAxisRaw("Horizontal"));
+        GetComponent<Animator>().SetBool("isMoving", false);
+        if (Input.GetAxisRaw("Horizontal") != 0)
+            GetComponent<Animator>().SetBool("isMoving", true);
+
+         GetComponent<Animator>().SetBool("isJumping", false);
+         if(velocity.y > 0)
+             GetComponent<Animator>().SetBool("isJumping", true);
     }
 }

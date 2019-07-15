@@ -12,6 +12,7 @@ public class AI_Movement : MonoBehaviour
 
     [Header("Global Data")]
     [SerializeField] private float movementSpeed = 0;
+    [SerializeField] private float defaultGravity = 0;
 
     [Header("Path Following")]
     [SerializeField] private bool canFollowPath = false;
@@ -26,6 +27,9 @@ public class AI_Movement : MonoBehaviour
     [SerializeField] private float escapeRadius = 0f;
     [SerializeField] private bool wasTargetCaught = false;
 
+    [Header("Run Away")]
+    [SerializeField] private float runningSpeed = 0f;
+
 
     void Start() {
 
@@ -33,6 +37,7 @@ public class AI_Movement : MonoBehaviour
         initTargetChase();
 
         animator = body.GetComponent<Animator>();
+        body.GetComponent<Rigidbody2D>().gravityScale = defaultGravity;
 
     }
 
@@ -40,6 +45,7 @@ public class AI_Movement : MonoBehaviour
 
         followPath();
         chaseTarget();
+        RunAway();
 
     }
 
@@ -102,6 +108,14 @@ public class AI_Movement : MonoBehaviour
 
     }
 
+    private void RunAway(){
+        ChangeForm changeForm = followedTarget.GetComponent<ChangeForm>();
+        if (changeForm != null && changeForm.hasTransformed){
+            Vector3 moveDir = transform.position - followedTarget.transform.position;
+            move(moveDir, runningSpeed);
+        }
+    }
+
     private int resetIndexOfList(int index, int lstCount){
         index++;
         if (index == lstCount)
@@ -112,7 +126,7 @@ public class AI_Movement : MonoBehaviour
     private void move(Vector3 newLocation, float speed){
         animator.SetFloat("movementSpeed", speed);
 
-        newLocation = new Vector3(newLocation.x, body.position.y, body.position.z);
+        newLocation = new Vector3(newLocation.x, newLocation.y, body.position.z);
         body.position = Vector3.MoveTowards(body.position, newLocation, speed * Time.deltaTime);
         flipX(newLocation);
     }

@@ -7,6 +7,7 @@ public class AI_Movement : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Transform body = null;
+    [SerializeField] private Animator animator = null; 
     [SerializeField] private List<Transform> pathMarkers = new List<Transform>();
 
     [Header("Global Data")]
@@ -23,13 +24,15 @@ public class AI_Movement : MonoBehaviour
     [SerializeField] private float chasingSpeed = 0f;
     [SerializeField] private float caughtRadius = 0f;
     [SerializeField] private float escapeRadius = 0f;
-    private bool wasTargetCaught = false;
+    [SerializeField] private bool wasTargetCaught = false;
 
 
     void Start() {
 
         initPathFollowing();
         initTargetChase();
+
+        animator = body.GetComponent<Animator>();
 
     }
 
@@ -70,15 +73,13 @@ public class AI_Movement : MonoBehaviour
 
         if (canFollowPath){
 
-            if (pathMarkers.Count > 0)
-                {
-                    if (Vector3.Distance(body.position, pathMarkers[currentMarkerIndex].position) <= markerRadius)
-                    {
+            if (pathMarkers.Count > 0 && !wasTargetCaught) {
+
+                    if (Vector3.Distance(body.position, pathMarkers[currentMarkerIndex].position) <= markerRadius) {
                         currentMarkerIndex = resetIndexOfList(currentMarkerIndex, pathMarkers.Count);
                     }
-
-                    body.position = Vector3.MoveTowards(body.position, pathMarkers[currentMarkerIndex].position, movementSpeed * Time.deltaTime);
-                }
+                    move(pathMarkers[currentMarkerIndex].position, movementSpeed);
+            }
 
         }
 
@@ -95,7 +96,7 @@ public class AI_Movement : MonoBehaviour
                 wasTargetCaught = false;
 
             if (wasTargetCaught)
-                body.position = Vector3.Lerp(body.position, followedTarget.position, chasingSpeed * Time.deltaTime);
+                move(followedTarget.position, chasingSpeed);
 
         }
 
@@ -107,4 +108,20 @@ public class AI_Movement : MonoBehaviour
             index = 0;
         return index;
     }
+
+    private void move(Vector3 newLocation, float speed){
+        animator.SetFloat("movementSpeed", speed);
+
+        newLocation = new Vector3(newLocation.x, body.position.y, body.position.z);
+        body.position = Vector3.MoveTowards(body.position, newLocation, speed * Time.deltaTime);
+        flipX(newLocation);
+    }
+
+    private void flipX(Vector3 newLocation){
+        if (body.position.x > newLocation.x)
+            body.GetComponent<SpriteRenderer>().flipX = false;
+        else
+            body.GetComponent<SpriteRenderer>().flipX = true;
+    }
+
 }

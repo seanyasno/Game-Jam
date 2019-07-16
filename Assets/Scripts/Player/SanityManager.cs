@@ -65,7 +65,7 @@ public class SanityManager : MonoBehaviour
     }
 
     private void death(){
-        sanity = 75;
+        sanity = maxLightRange;
         transform.position = respawnLocation;
         cam.orthographicSize = 5;
         cam.GetComponent<CameraFollowTarget>().addedVector = new Vector3(0, 2, -10);

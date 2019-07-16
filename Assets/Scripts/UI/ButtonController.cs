@@ -10,9 +10,13 @@ public class ButtonController : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
+    public void exitGame(string name) {
+        Application.Quit();
+    }
+
     public void Update(){
         if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+             SceneManager.LoadScene("MainMenu");
     }
 
 }

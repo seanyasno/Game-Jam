@@ -36,6 +36,9 @@ public class ChangeForm : MonoBehaviour
 
     private void Update(){
 
+        if (transformOptions.Count == 0)
+            hasTransformed = false;
+
         getOptions();
         transformed();
 
@@ -102,7 +105,7 @@ public class ChangeForm : MonoBehaviour
     }
 
     public void updateMana(float newValue){
-          manaBar.fillAmount = newValue;
+          currentMana = newValue;
           manaBar.fillAmount = newValue;
     }
 

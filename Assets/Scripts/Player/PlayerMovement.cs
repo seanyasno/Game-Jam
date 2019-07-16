@@ -140,13 +140,10 @@ public class PlayerMovement : PhysicsObject {
         }
 
         bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
+        if (move.x == 0)
+            flipSprite = false;
         if (flipSprite) 
-        {
             spriteRenderer.flipX = !spriteRenderer.flipX;
-        }
-
-        // animator.SetBool ("grounded", grounded);
-        // animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / maxSpeed);
 
         targetVelocity = move * maxSpeed;
         GetComponent<Animator>().SetFloat("MovementSpeed", Input.GetAxisRaw("Horizontal"));

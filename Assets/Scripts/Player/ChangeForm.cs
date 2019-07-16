@@ -35,10 +35,11 @@ public class ChangeForm : MonoBehaviour
         }
     }
 
-    private void changeSprite(Sprite form, bool enablePlayerMovement){
+    private void changeSprite(Sprite form, bool enableScripts){
 
         GetComponent<SpriteRenderer>().sprite = form;
-        GetComponent<PlayerMovement>().enabled = enablePlayerMovement;
+        GetComponent<PlayerMovement>().enabled = enableScripts;
+        GetComponent<Animator>().enabled = enableScripts;
 
     }
 }

@@ -5,10 +5,8 @@ using UnityEngine;
 public class CameraFollowTarget : MonoBehaviour
 {
 
-    [SerializeField]
-    private Transform followedTarget = null;
-    [SerializeField]
-    private float addToPositionZ = 0;
+    [SerializeField] private Transform followedTarget = null;
+    [SerializeField] private Vector3 addedVector = new Vector3(0, 0, 0);
    
     void Start() {
 
@@ -20,7 +18,7 @@ public class CameraFollowTarget : MonoBehaviour
    
     void LateUpdate() {
 
-        transform.position = new Vector3(followedTarget.position.x, followedTarget.position.y + 5, followedTarget.position.z + addToPositionZ);
+        transform.position = new Vector3(followedTarget.position.x + addedVector.x, followedTarget.position.y + addedVector.y, followedTarget.position.z + addedVector.z);
         
     }
 }

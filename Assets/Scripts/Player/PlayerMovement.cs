@@ -146,13 +146,29 @@ public class PlayerMovement : PhysicsObject {
             spriteRenderer.flipX = !spriteRenderer.flipX;
 
         targetVelocity = move * maxSpeed;
+        AudioSource audioSource = GetComponent<AudioSource>();
         GetComponent<Animator>().SetFloat("MovementSpeed", Input.GetAxisRaw("Horizontal"));
+        GetComponent<Animator>().SetFloat("horizontal", Input.GetAxis("Horizontal"));
         GetComponent<Animator>().SetBool("isMoving", false);
-        if (Input.GetAxisRaw("Horizontal") != 0)
-            GetComponent<Animator>().SetBool("isMoving", true);
 
-         GetComponent<Animator>().SetBool("isJumping", false);
-         if(velocity.y > 0)
-             GetComponent<Animator>().SetBool("isJumping", true);
+        if (Input.GetAxisRaw("Horizontal") != 0 && grounded){
+
+            GetComponent<Animator>().Play("DadMovement");
+
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+
+        }
+        else {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+            if (grounded)
+                GetComponent<Animator>().Play("Idle");
+        }
+        
+        GetComponent<Animator>().SetBool("isJumping", false);
+        if(velocity.y > 0)
+            GetComponent<Animator>().SetBool("isJumping", true);
+
     }
 }

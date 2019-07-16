@@ -6,7 +6,7 @@ public class CameraFollowTarget : MonoBehaviour
 {
 
     [SerializeField] private Transform followedTarget = null;
-    [SerializeField] private Vector3 addedVector = new Vector3(0, 0, 0);
+    [SerializeField] public Vector3 addedVector = new Vector3(0, 0, 0);
    
     void Start() {
 

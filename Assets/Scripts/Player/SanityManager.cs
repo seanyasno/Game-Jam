@@ -5,6 +5,9 @@ using UnityEngine.PostProcessing;
 public class SanityManager : MonoBehaviour
 {
 
+    private float decreaseMultipler = 0.25f;
+    public float DecreaseMultipler { get { return decreaseMultipler; } set{}}
+
     // The current amount of sanity the player's has
     [SerializeField, Range(0f, 75f)] private float sanity;
     public float Sanity { get; }
@@ -13,6 +16,9 @@ public class SanityManager : MonoBehaviour
     public SanityLevel SanityLevel { get; }
 
     private CameraShake cameraShake;
+
+    [SerializeField] private Vector3 respawnLocation = new Vector3(0, 0, 0);
+    [SerializeField] private Camera cam;
 
     //------------------- Lighting Settings Section ----------------------
 
@@ -53,14 +59,16 @@ public class SanityManager : MonoBehaviour
     }
 
     public void DecreaseSanity(float toSub) {
-        sanity -= toSub/4;
+        sanity -= toSub/(1/decreaseMultipler);
 
         if (sanity <= 0) death();
     }
 
     private void death(){
-        sanity = 0;
-        
+        sanity = 75;
+        transform.position = respawnLocation;
+        cam.orthographicSize = 5;
+        cam.GetComponent<CameraFollowTarget>().addedVector = new Vector3(0, 2, -10);
     }
 
     // Updates player light's settings

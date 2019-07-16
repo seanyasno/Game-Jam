@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Ceiling_down
+  m_Name: PlatformB_3
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 0106f875f0b928d4891621d0c78dccf6, type: 3}
+  m_Sprite: {fileID: 5037269910338119159, guid: 8027c32d6160d124c8b958467692ed28,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

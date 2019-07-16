@@ -52,6 +52,7 @@ public class Lighting : MonoBehaviour
                 Destroy(this.gameObject);
             }
             playerSanity.IncreaseSanity(previousIntesity - light.intensity);
+            player.GetComponent<ChangeForm>().updateMana(player.GetComponent<ChangeForm>().maxMana);
         }
     }
     private float DistanceFromPlayer()

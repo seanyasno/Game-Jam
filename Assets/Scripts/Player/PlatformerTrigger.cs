@@ -18,7 +18,7 @@ public class PlatformerTrigger : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.C)) {
+        if (Input.GetAxisRaw("Vertical") < 0) {
             tmCollider.isTrigger = true;
         }
     }

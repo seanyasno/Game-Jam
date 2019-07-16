@@ -17,8 +17,13 @@ public class CameraFollowTarget : MonoBehaviour
 
    
     void LateUpdate() {
+// <<<<<<< HEAD
 
         transform.position = new Vector3(followedTarget.position.x + addedVector.x, followedTarget.position.y + addedVector.y, followedTarget.position.z + addedVector.z);
+// =======
+//         //followedTarget.position.y + 5
+        // transform.position = new Vector3(followedTarget.position.x, transform.position.y, followedTarget.position.z + addToPositionZ);
+// >>>>>>> 1f31eef9c41b7649ff69475aa46ed2b15e7d3b65
         
     }
 }

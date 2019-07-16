@@ -5,30 +5,51 @@ using UnityEngine.Tilemaps;
 
 public class PlatformerTrigger : MonoBehaviour
 {
-    public TilemapCollider2D tmCollider;
+   public TilemapCollider2D tmCollider;
 
-    bool pressedDown() {
-        return Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-    }
+    public PlayerMovement playerMovement;
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.transform.name == "Platforms")
-            tmCollider.isTrigger = true;
-    }
+    private bool isJumping = false;
 
-    private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.transform.name == "Platforms")
-            tmCollider.isTrigger = false;
-    }
-
-    private void Update() {
-// <<<<<<< HEAD
-//         if (Input.GetAxisRaw("Vertical") < 0) {
-// =======
-        if (pressedDown()) {
-// >>>>>>> 6f7805f4380ac6c99e7bfa93308b51810d995ca6
-            tmCollider.isTrigger = true;
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (isJumping) {
+            if (other.transform.name == "Platforms") {
+                tmCollider.isTrigger = true;
+            }
         }
     }
 
+    private void OnTriggerStay2D(Collider2D other) {
+
+        if (isJumping) {
+            if (other.transform.name == "Platforms") {
+                tmCollider.isTrigger = true;
+            }
+        } else {
+            if (other.transform.name == "Platforms") {
+                tmCollider.isTrigger = false;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if (isJumping) {
+            if (other.transform.name == "Platforms") {
+                tmCollider.isTrigger = false;
+                isJumping = false;
+            }
+        }
+    }
+
+    private void Update() {
+        if (playerMovement.Grounded)
+            isJumping = false;
+
+        if (Input.GetAxisRaw("Vertical") < 0) {
+            tmCollider.isTrigger = true;
+            isJumping = true;
+        } else if (Input.GetKeyDown(KeyCode.Space)) {
+            isJumping = true;
+        }
+    }
 }

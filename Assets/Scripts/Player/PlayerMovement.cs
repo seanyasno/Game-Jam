@@ -112,6 +112,8 @@ public class PlayerMovement : PhysicsObject {
     public float maxSpeed = 7;
     public float jumpTakeOffSpeed = 16;
 
+    public bool Grounded { get{return grounded;}}
+
     private SpriteRenderer spriteRenderer;
     // private Animator animator;
 

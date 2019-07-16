@@ -22,7 +22,11 @@ public class PlatformerTrigger : MonoBehaviour
     }
 
     private void Update() {
+// <<<<<<< HEAD
+//         if (Input.GetAxisRaw("Vertical") < 0) {
+// =======
         if (pressedDown()) {
+// >>>>>>> 6f7805f4380ac6c99e7bfa93308b51810d995ca6
             tmCollider.isTrigger = true;
         }
     }

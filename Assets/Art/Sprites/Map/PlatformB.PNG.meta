@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: 5037269910338119159
     second: PlatformB_3
+  - first:
+      213: 2007619839387729194
+    second: PlatformB_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -141,10 +144,35 @@ TextureImporter:
       name: PlatformB_0
       rect:
         serializedVersion: 2
-        x: 320
-        y: 600
+        x: 387
+        y: 614
         width: 1620
-        height: 331
+        height: 440
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -809, y: -213}
+        - {x: -809, y: 86}
+        - {x: 671, y: 86}
+        - {x: 671, y: -213}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae38e3fdddd2bfa43a0902e4bd316964
+      internalID: -6695819267585076013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformB_3
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 434
+        width: 1739
+        height: 825
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +180,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae38e3fdddd2bfa43a0902e4bd316964
-      internalID: -6695819267585076013
+      spriteID: acfc9335a3ae44a468bb652993e88d37
+      internalID: 5037269910338119159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformB_4
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 367
+        width: 1364
+        height: 1038
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700581d202f474243be44da8e9404eaa
+      internalID: 2007619839387729194
       vertices: []
       indices: 
       edges: []
